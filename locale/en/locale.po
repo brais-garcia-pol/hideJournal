@@ -17,5 +17,8 @@ msgstr "Hide Journal"
 msgid "plugins.generic.hideJournal.description"
 msgstr "A plugin to hide your Journal without deactivating them"
 
-msgid "plugins.generic.hideJournal."
-msgstr ""
+msgid "plugins.generic.hideJournal.label"
+msgstr "Visible in public listing"
+
+msgid "plugins.generic.hideJournal.description"
+msgstr "Makes it so the journal is still visible in the general view"

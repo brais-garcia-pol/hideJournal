@@ -17,5 +17,8 @@ msgstr "Ocultar Revista"
 msgid "plugins.generic.hideJournal.description"
 msgstr "Un plugin que te permite ocultar una revista sin necesidad de desactivarla"
 
-msgid "plugins.generic.hideJournal."
-msgstr ""
+msgid "plugins.generic.hideJournal.label"
+msgstr "Visible en el listado público"
+
+msgid "plugins.generic.hideJournal.description"
+msgstr "Deja la revista visible al listado público"
