@@ -10,9 +10,9 @@
   * Plugin version information.
   -->
 <version>
-	<application>hideIssue</application>
+	<application>hideJournal</application>
 	<type>plugins.generic</type>
 	<release>1.0.0.0</release>
 	<date>2025-04-09</date>
-	<class>HideIssuePlugin</class>
+	<class>HideJournalPlugin</class>
 </version>

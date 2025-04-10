@@ -1,16 +1,16 @@
 <?php
 /**
- * @file HideIssuePlugin.php
+ * @file HideJuornalPlugin.php
  *
  * Copyright (c) 2017-2023 Simon Fraser University
  * Copyright (c) 2017-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class HideIssuePlugin
- * @brief Plugin class for the HideIssue plugin.
+ * @class HideJournalPlugin
+ * @brief Plugin class for the HideJournal plugin.
  */
 
-namespace APP\plugins\generic\hideIssue;
+namespace APP\plugins\generic\hideJournal;
 
 use APP\core\Application;
 use PKP\components\forms\FieldText;
@@ -19,7 +19,7 @@ use PKP\plugins\GenericPlugin;
 use PKP\plugins\Hook;
 use stdClass;
 
-class HideIssuePlugin extends GenericPlugin
+class HideJournalPlugin extends GenericPlugin
 {
     /** @copydoc GenericPlugin::register() */
     public function register($category, $path, $mainContextId = null): bool
@@ -28,7 +28,7 @@ class HideIssuePlugin extends GenericPlugin
 
         if ($success && $this->getEnabled()) {
           
-            Hook::add('Schema::get::issues',[$this,'addHideIssueField']);
+            Hook::add('Schema::get::journal',[$this,'changeEnabled']);
 
             // Use a hook to add a field to the masthead form context settings.
             Hook::add('Form::config::before', [$this, 'addToForm']);
@@ -45,7 +45,7 @@ class HideIssuePlugin extends GenericPlugin
      */
     public function getDisplayName(): string
     {
-        return __('plugins.generic.hideIssue.displayName');
+        return __('plugins.generic.hideJournal.displayName');
     }
 
     /**
@@ -56,18 +56,18 @@ class HideIssuePlugin extends GenericPlugin
      */
     public function getDescription(): string
     {
-        return __('plugins.generic.HideIssue.description');
+        return __('plugins.generic.hideJournal.description');
     }
 
 
-    public function addHideIssueField($hookName, $args){
+    public function changue($hookName, $args){
         $schema = $args[0];
-        $schema->properties->hideIssue = (object) [
-            "type" => "bool",
-            "default" => true,
-        ];
+        if(issset($schema->properties->enabled)){
+            $schema->properties->enabled = false;
+        }
 
-        return false;
+
+        return true;
     }
 
 
@@ -87,39 +87,16 @@ class HideIssuePlugin extends GenericPlugin
 
         
         // Add a field to the form
-        $form->addField(new FieldText('hideIssue', [
-            'label' => 'Hide Issue',
-            'groupId' => 'issues',
-            'value' => $context->getData('hideIssue'),
+        $form->addField(new FieldText('hideJournal', [
+            'label' => 'Hide Journal',
+            'groupId' => 'journals',
+            'value' => $context->getData('hideJournal'),
         ]));
 
         return false;
     }
 
-    }
-
-    /**
-     * Add a settings action to the plugin's entry in the plugins list.
-     *
-     * @param Request $request
-     * @param array $actionArgs
-     */
-    public function getActions($request, $actionArgs): array
-    {
-        $actions = new Actions($this);
-        return $actions->execute($request, $actionArgs, parent::getActions($request, $actionArgs));
-    }
-
-    /**
-     * Load a form when the `settings` button is clicked and
-     * save the form when the user saves it.
-     *
-     * @param array $args
-     * @param Request $request
-     */
-    public function manage($args, $request): JSONMessage
-    {
-        $manage = new Manage($this);
-        return $manage->execute($args, $request);
+    public function isSitePlugin(){
+        return true;
     }
 }
