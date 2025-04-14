@@ -66,13 +66,15 @@ class HideJournalPlugin extends GenericPlugin
     public function addCustomField($hookName, $args){
         $schema = $args[0];
         $request = Application::get()->getRequest();
-        $context = $request->getContext();
-        $schema->properties->visibleInList = (object)[
-            "type" => "boolean",
-            "default" => true,
-            "label" => "plugins.generic.hideJournal.label",
-            "description" => "plugins.generic.hideJournal.description"
-        ];
+
+        if(!property_exists($schema->properties, 'visibleInList')){
+            $schema->properties->visibleInList = (object)[
+                "type" => "boolean",
+                "default" => true,
+                "label" => "plugins.generic.hideJournal.label",
+                "description" => "plugins.generic.hideJournal.description"
+            ];
+        }
        
 
         return false;
@@ -122,11 +124,11 @@ class HideJournalPlugin extends GenericPlugin
         if (!$context) {
             return true;
         }
-
+       
         // Add a field to the form
         $form->addField(new FieldText('visibleInList', [
-            'label' => 'plugins.generic.hideJournal.label',
-            'groupId' => 'journal',
+            'label' => __('plugins.generic.hideJournal.label'),
+            'groupId' => 'publishing',
             'value' => $context->getData('visibleInList'),
         ]));
 
