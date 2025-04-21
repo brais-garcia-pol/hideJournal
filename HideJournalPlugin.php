@@ -83,11 +83,11 @@ class HideJournalPlugin extends GenericPlugin
     $template = $args[1];
 
     if (strpos($template, 'frontend/pages/indexSite.tpl') !== false) {
-        $journals = $templateMgr->getTemplateVars('journals');
-        $journals = array_filter($journals, function ($journal) {
-            return $journal->getData('visibleInList') !== false;
+        $presses = $templateMgr->getTemplateVars('presses');
+        $presses = array_filter($presses, function ($press) {
+            return $press->getData('visibleInList') !== false;
         });
-        $templateMgr->assign('journals', $journals);
+        $templateMgr->assign('presses', $presses);
     }
 
     return false;
