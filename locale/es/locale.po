@@ -11,11 +11,14 @@ msgstr ""
 "PO-Revision-Date: 2020-11-27T16:21:26+00:00\n"
 "Language: \n"
 
-msgid "plugins.generic.hideIssue.displayName"
-msgstr "Ocultar Número/Edición"
+msgid "plugins.generic.hideJournal.displayName"
+msgstr "Ocultar Revista"
 
-msgid "plugins.generic.hideIssue.description"
-msgstr "Un plugin que te permite ocultar un número sin necesidad de desactivarlo"
+msgid "plugins.generic.hideJournal.description"
+msgstr "Un plugin que te permite ocultar una revista sin necesidad de desactivarla"
 
-msgid "plugins.generic.hideIssue."
-msgstr ""
+msgid "plugins.generic.hideJournal.label"
+msgstr "Visible en el listado público"
+
+msgid "plugins.generic.hideJournal.description"
+msgstr "Deja la revista visible al listado público"

@@ -11,11 +11,14 @@ msgstr ""
 "PO-Revision-Date: 2020-11-27T16:21:26+00:00\n"
 "Language: \n"
 
-msgid "plugins.generic.hideIssue.displayName"
-msgstr "Hide Issue"
+msgid "plugins.generic.hideJournal.displayName"
+msgstr "Hide Journal"
 
-msgid "plugins.generic.hideIssue.description"
-msgstr "A plugin to hide your issue without deactivating them"
+msgid "plugins.generic.hideJournal.description"
+msgstr "A plugin to hide your Journal without deactivating them"
 
-msgid "plugins.generic.hideIssue."
-msgstr ""
+msgid "plugins.generic.hideJournal.label"
+msgstr "Visible in public listing"
+
+msgid "plugins.generic.hideJournal.description"
+msgstr "Makes it so the journal is still visible in the general view"
