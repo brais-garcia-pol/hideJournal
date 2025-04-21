@@ -24,7 +24,7 @@ You can install this plugin in two ways:
 ### Plugin Usage
 
 -   The plugin adds a checkbox to the Masthead -> Publishing Details - settings of the journal in which it is enabled
-    -   ![Settings Example](doc/img/settingsExampleHideJournalPlugin.png)
+    ![Settings Example](doc/img/settingsExampleHideJournalPlugin.png)
 
 ### To be considered
 
